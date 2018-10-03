@@ -34,8 +34,8 @@ const calculator = {
     }
   }
 };
-// const buttonContainer = document.querySelector('.calcButtons');
-// buttonContainer.addEventListener('touchend', calculator.buttonClicked);
+const buttonContainer = document.querySelector('.calcButtons');
+buttonContainer.addEventListener('touchend', calculator.buttonClicked);
 
 // function buttonClicked(button) {
 //   console.log(button);
