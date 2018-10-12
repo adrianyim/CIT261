@@ -8,14 +8,14 @@
     <script type="text/javascript" src="GPA.js"></script>
     <link rel="stylesheet" href="GPA.css">
 </head>
-<body style="margin:auto">
+<body>
     <header class="menuBar">
         <a href="http://www.byui.edu/"><img src="http://www.byui.edu/Images/Branding/Official-Logo.jpg" class="byuiLink"></a>
         <h1>GPA Calculator version 2.0</h1>
     </header>
     <table class="table">
-        <tr class="subMenuBar"><th><button type="button" id="instruct" class="btn-primary" onclick="disInstruction()" style="background-color: #525252;"><h3>Instruction</h3></button></th>
-            <th style="border-bottom: 2px solid black; border-top: 2px solid black;"><button type="button" id="about" class="btn-primary" onclick="disAbout()" style="background-color: #525252;"><h3>About</h3></button></th></tr>
+        <tr class="subMenuBar"><th><button type="button" id="instruct" class="btn-primary" onclick="disInstruction()"><h3>Instruction</h3></button></th>
+            <th><button type="button" id="about" class="btn-primary" onclick="disAbout()"><h3>About</h3></button></th></tr>
         <tr><td id="td1" colspan="2"><div id="display"></div></td></tr>
         <tr><td id="td2">
             <form name="GPACalcForm">
@@ -37,9 +37,9 @@
                         <select id="GR7"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR7" ALIGN=TOP maxlength="1"></td></tr>
                     <tr><td>8. <input type="text" id="n8" size="10"></td><td>
                         <select id="GR8"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR8" ALIGN=TOP maxlength="1"></td></tr>
-                    <tr style="text-align: center"><td colspan="3"><button type="button" name="CalcButton" onclick="valid()">Report</button><input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr>
+                    <tr><td colspan="3"><button type="button" name="CalcButton" onclick="valid()">Report</button><input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr>
                 </table>
-            </form></td><td style="text-align: center; border-left: 2px solid black;"><div id="result"></div></td></tr>
+            </form></td><td><div id="result"></div></td></tr>
     </table>
     <br>
     <footer>

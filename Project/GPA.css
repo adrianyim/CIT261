@@ -5,6 +5,9 @@ h3 {
     font-family: cursive;
     color: white;
 }
+body {
+    margin:auto;
+}
 .menuBar {
     text-align: center;
     background-color: #0076C6;
@@ -62,8 +65,8 @@ td{
     margin: 0;
     border: 0;
 }
-#instruct {
-
+#instruct, #about {
+    background-color: #525252;
 }
 #display {
     font-family: cursive
