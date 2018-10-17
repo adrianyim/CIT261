@@ -5,7 +5,10 @@
     <meta charset="utf-8" />
     <meta name="veiwport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="BYU-Idaho, BYUI, GPA, GPA calculator">
-    <script type="text/javascript" src="GPA.js"></script>
+    <script type="text/javascript" src="GPA.js">
+    document.getElementById("td2").innerHTML = "working";
+
+    </script>
     <link rel="stylesheet" href="GPA.css">
 </head>
 <body>
@@ -19,7 +22,6 @@
         <tr><td id="td1" colspan="2"><div id="display"></div></td></tr>
         <tr><td id="td2">
             <form name="GPACalcForm">
-                <p id="semester"></p>
                 <!-- <table>
                     <tr id="semester"></tr>
                     <tr><th>Course:</th><th>Grade</th><th>Credits</th></tr>
