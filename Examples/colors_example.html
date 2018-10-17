@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="veiwport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1 style = "text-align: center">Texting colors array</h1>
+        <div id = 'display'></div>
+
+        <script>
+            const colors = ['red', 'green', 'blue', 'yellow', 'white', 'black', 'pink', 'orange'];
+
+            for (let i = 0; i < colors.length; i++) {
+                console.log(colors[i]);
+            }
+
+            colors.forEach(item => {
+                console.log(item);
+            });
+
+            const filteredWildcard = colors.filter(item => {
+                return item.toLowerCase().indexOf("r".toLowerCase()) > -1;
+            });
+            document.getElementById('display').innerHTML = colors;
+            
+        </script>
+    </body>
+</html>

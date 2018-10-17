@@ -4,14 +4,14 @@
     <title>BYU-Idaho GPA Calculator</title>
     <meta charset="utf-8" />
     <meta name="veiwport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="BYU-Idaho, GPA calculator">
+    <meta name="keywords" content="BYU-Idaho, BYUI, GPA, GPA calculator">
     <script type="text/javascript" src="GPA.js"></script>
     <link rel="stylesheet" href="GPA.css">
 </head>
 <body>
     <header class="menuBar">
         <a href="http://www.byui.edu/"><img src="http://www.byui.edu/Images/Branding/Official-Logo.jpg" class="byuiLink"></a>
-        <h1>GPA Calculator version 2.0</h1>
+        <h1>GPA Calculator version 3.0</h1>
     </header>
     <table class="table">
         <tr class="subMenuBar"><th><button type="button" id="instruct" class="btn-primary" onclick="disInstruction()"><h3>Instruction</h3></button></th>
@@ -19,8 +19,10 @@
         <tr><td id="td1" colspan="2"><div id="display"></div></td></tr>
         <tr><td id="td2">
             <form name="GPACalcForm">
-                <table id="myTable">
-                    <tr><th>Course:</th><th>Grade</th><th>Credits</th></tr>
+                <table>
+                    <tr id="semester"></tr>
+                    <!-- <tr><th>Course:</th><th>Grade</th><th>Credits</th></tr>
+                    <tr><td id = "add">adds</td></tr>
                     <tr><td>1. <input type="text" id="n1" size="10" placeholder="CS 371"></td><td>
                         <select id="GR1"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR1" maxlength="1" onblur="inputError()" placeholder="4"></td></tr>
                     <tr><td>2. <input type="text" id="n2" size="10"></td><td>
@@ -37,7 +39,7 @@
                         <select id="GR7"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR7" ALIGN=TOP maxlength="1"></td></tr>
                     <tr><td>8. <input type="text" id="n8" size="10"></td><td>
                         <select id="GR8"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR8" ALIGN=TOP maxlength="1"></td></tr>
-                    <tr><td colspan="3"><button type="button" name="CalcButton" onclick="valid()">Report</button><input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr>
+                    <tr><td colspan="3"><button type="button" name="addButton" onclick="createRow()">Add</button><button type="button" name="CalcButton" onclick="valid()">Report</button><input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr> -->
                 </table>
             </form></td><td><div id="result"></div></td></tr>
     </table>
