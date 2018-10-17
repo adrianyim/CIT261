@@ -182,7 +182,8 @@ function report(gpa) {
 //     }
 // }
 
-document.getElementById("semester").innerHTML = "<tr><th>Course:</th><th>Grade</th><th>Credits</th></tr>";
+//document.getElementById("semester").innerHTML = "<table><tr><th>Course:</th><th>Grade</th><th>Credits</th></tr></table>";
+document.getElementById("semester").innerHTML = "working";
 
 function createRow() {
     document.getElementById("add").innerHTML += "<tr><td>1. <input type='text' id='n1' size='10' placeholder='CS 371'></td><td><select id='GR1'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR1' maxlength='1' onblur='inputError()' placeholder='4'></td></tr>";
