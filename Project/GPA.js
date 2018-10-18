@@ -108,28 +108,28 @@ function valid() {
     className[1] = document.GPACalcForm.n2.value;
     className[2] = document.GPACalcForm.n3.value;
     className[3] = document.GPACalcForm.n4.value;
-    className[4] = document.GPACalcForm.n5.value;
-    className[5] = document.GPACalcForm.n6.value;
-    className[6] = document.GPACalcForm.n7.value;
-    className[7] = document.GPACalcForm.n8.value;
+    // className[4] = document.GPACalcForm.n5.value;
+    // className[5] = document.GPACalcForm.n6.value;
+    // className[6] = document.GPACalcForm.n7.value;
+    // className[7] = document.GPACalcForm.n8.value;
     
     inGrades[0] = document.GPACalcForm.GR1.value;
     inGrades[1] = document.GPACalcForm.GR2.value;
     inGrades[2] = document.GPACalcForm.GR3.value;
     inGrades[3] = document.GPACalcForm.GR4.value;
-    inGrades[4] = document.GPACalcForm.GR5.value;
-    inGrades[5] = document.GPACalcForm.GR6.value;
-    inGrades[6] = document.GPACalcForm.GR7.value;
-    inGrades[7] = document.GPACalcForm.GR8.value;
+    // inGrades[4] = document.GPACalcForm.GR5.value;
+    // inGrades[5] = document.GPACalcForm.GR6.value;
+    // inGrades[6] = document.GPACalcForm.GR7.value;
+    // inGrades[7] = document.GPACalcForm.GR8.value;
     
     inCredits[0] = document.GPACalcForm.CR1.value;
     inCredits[1] = document.GPACalcForm.CR2.value;
     inCredits[2] = document.GPACalcForm.CR3.value;
     inCredits[3] = document.GPACalcForm.CR4.value;
-    inCredits[4] = document.GPACalcForm.CR5.value;
-    inCredits[5] = document.GPACalcForm.CR6.value;
-    inCredits[6] = document.GPACalcForm.CR7.value;
-    inCredits[7] = document.GPACalcForm.CR8.value;
+    // inCredits[4] = document.GPACalcForm.CR5.value;
+    // inCredits[5] = document.GPACalcForm.CR6.value;
+    // inCredits[6] = document.GPACalcForm.CR7.value;
+    // inCredits[7] = document.GPACalcForm.CR8.value;
     
     // Check empty or not
     var error = true;
@@ -182,8 +182,13 @@ function report(gpa) {
 //     }
 // }
 
-//document.getElementById("semester").innerHTML = "<table><tr><th>Course:</th><th>Grade</th><th>Credits</th></tr></table>";
+window.onload = function() {
+    document.getElementById("semester").innerHTML = "<table><tr><th>Course:</th><th>Grade</th><th>Credits</th></tr><tr><td>1. <input type='text' id='n1' size='10' placeholder='CS 371'></td><td><select id='GR1'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR1' maxlength='1' onblur='inputError()' placeholder='4'></td></tr><tr><td>2. <input type='text' id='n2' size='10'></td><td><select id='GR2'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR2' ALIGN=TOP  maxlength='1'></td></tr><tr><td>3. <input type='text' id='n3' size='10'></td><td><select id='GR3'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR3' ALIGN=TOP  maxlength='1'></td></tr><tr><td>4. <input type='text' id='n4' size='10'></td><td><select id='GR4'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR4' ALIGN=TOP  maxlength='1'></td></tr><tr><td colspan='3'><button type='button' name='addButton' onclick='createRow()'>Add</button><button type='button' name='CalcButton' onclick='valid()'>Report</button><input type='reset' value='Reset' name='resetButton' onclick='getClear()'></td></tr></table>";
+    var rowCount = document.getElementById('semester').tbody.length;
+    console.log(rowCount);
+    //document.getElementById(result).innerHTML = rowCount;
+};
 
-function createRow() {
-    document.getElementById("add").innerHTML += "<tr><td>1. <input type='text' id='n1' size='10' placeholder='CS 371'></td><td><select id='GR1'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR1' maxlength='1' onblur='inputError()' placeholder='4'></td></tr>";
+function addRow() {
+
 }
