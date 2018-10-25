@@ -71,7 +71,7 @@ function gpacalc(){
     var totalCredits = 0;
     var gpa = 0;
     
-    for (var x = 0; x < classCount; x++) {
+    for (var x=0; x<document.getElementById("semester_tbody").rows.length - 1; x++) {
         /*if (inGrades[x] == "") {
             alert("ERROR: The grade of Course " + eval(x + 1) + " is incorrect!");
             break;
@@ -97,60 +97,49 @@ function gpacalc(){
         return 0;
     }
     
-    gpa = Math.round(totalGrades / totalCredits * 100)/100;
+    gpa = Math.round(totalGrades/totalCredits*100)/100;
     report(gpa);
 }
 
 // A valid function
 function valid() {
+
     // Retrieve user inputs
-    className[0] = document.GPACalcForm.n1.value;
-    className[1] = document.GPACalcForm.n2.value;
-    className[2] = document.GPACalcForm.n3.value;
-    className[3] = document.GPACalcForm.n4.value;
-    // className[4] = document.GPACalcForm.n5.value;
-    // className[5] = document.GPACalcForm.n6.value;
-    // className[6] = document.GPACalcForm.n7.value;
-    // className[7] = document.GPACalcForm.n8.value;
-    
-    inGrades[0] = document.GPACalcForm.GR1.value;
-    inGrades[1] = document.GPACalcForm.GR2.value;
-    inGrades[2] = document.GPACalcForm.GR3.value;
-    inGrades[3] = document.GPACalcForm.GR4.value;
-    // inGrades[4] = document.GPACalcForm.GR5.value;
-    // inGrades[5] = document.GPACalcForm.GR6.value;
-    // inGrades[6] = document.GPACalcForm.GR7.value;
-    // inGrades[7] = document.GPACalcForm.GR8.value;
-    
-    inCredits[0] = document.GPACalcForm.CR1.value;
-    inCredits[1] = document.GPACalcForm.CR2.value;
-    inCredits[2] = document.GPACalcForm.CR3.value;
-    inCredits[3] = document.GPACalcForm.CR4.value;
-    // inCredits[4] = document.GPACalcForm.CR5.value;
-    // inCredits[5] = document.GPACalcForm.CR6.value;
-    // inCredits[6] = document.GPACalcForm.CR7.value;
-    // inCredits[7] = document.GPACalcForm.CR8.value;
+    // For class names
+    for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
+        className[i] = document.GPACalcForm['n'+(i+1)].value;
+    }
+
+    // For grades
+    for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
+        inGrades[i] = document.GPACalcForm['GR'+(i+1)].value;
+    }
+
+    // For credits
+    for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
+        inCredits[i] = document.GPACalcForm['CR'+(i+1)].value;
+    }
     
     // Check empty or not
     var error = true;
-    for ( var i = 0; i < classCount; i++) {
+    for ( var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
         if (inGrades[i] != "none" && inCredits[i] != ""){
             gpacalc();
             error = false;
         }
         
         if (className[i] == "") {
-            alert("Input Error: Course Name " + eval(i + 1) + " is missing!");
+            alert("Input Error: Course Name " + eval(i+1) + " is missing!");
             error = true;
         }
         
         if (inGrades[i] == "none") {
-            alert("Input Error: Grade of Course " + eval(i + 1) + " is missing!");
+            alert("Input Error: Grade of Course " + eval(i+1) + " is missing!");
             error = true;
         }
             
         if (inCredits[i] == ""){
-            alert("Input Error: Credit of Course " + eval(i + 1) + " is missing!");
+            alert("Input Error: Credit of Course " + eval(i+1) + " is missing!");
             error = true;
         }
             
@@ -165,7 +154,7 @@ function report(gpa) {
     var report = "<h2>Your Report</h2><br/>";
     document.getElementById("result").innerHTML = report;
     
-    for (var i = 0; i < classCount; i++) {
+    for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
         if (inGrades[i] == "none") {
             break;
         }
@@ -175,20 +164,16 @@ function report(gpa) {
     return 0;
 }
 
-// Add a new semester
-// function add() {
-//     for (var i = 0; i < 2; i++) {
-//         document.getElementById("add").innerHTML += "Added " + [i] + "<br/>";
-//     }
-// }
-
-window.onload = function() {
-    document.getElementById("semester").innerHTML = "<table><tr><th>Course:</th><th>Grade</th><th>Credits</th></tr><tr><td>1. <input type='text' id='n1' size='10' placeholder='CS 371'></td><td><select id='GR1'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR1' maxlength='1' onblur='inputError()' placeholder='4'></td></tr><tr><td>2. <input type='text' id='n2' size='10'></td><td><select id='GR2'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR2' ALIGN=TOP  maxlength='1'></td></tr><tr><td>3. <input type='text' id='n3' size='10'></td><td><select id='GR3'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR3' ALIGN=TOP  maxlength='1'></td></tr><tr><td>4. <input type='text' id='n4' size='10'></td><td><select id='GR4'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select></td><td><input type='text' size='1' name='CR4' ALIGN=TOP  maxlength='1'></td></tr><tr><td colspan='3'><button type='button' name='addButton' onclick='createRow()'>Add</button><button type='button' name='CalcButton' onclick='valid()'>Report</button><input type='reset' value='Reset' name='resetButton' onclick='getClear()'></td></tr></table>";
-    var rowCount = document.getElementById('semester').tbody.length;
-    console.log(rowCount);
-    //document.getElementById(result).innerHTML = rowCount;
-};
-
+// Add classes
 function addRow() {
+    var table = document.getElementById("semester_tbody");
+    var row = table.insertRow(document.getElementById("semester_tbody").rows.length - 1);
 
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    cell1.innerHTML = (document.getElementById('semester_tbody').rows.length - 1) + ". <input type='text' name='n" + (document.getElementById("semester_tbody").rows.length - 1) + "' size='10'>";
+    cell2.innerHTML = "<select id='GR" + (document.getElementById("semester_tbody").rows.length - 1) + "'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select>";
+    cell3.innerHTML = "<input type='text' size='1' name='CR" + (document.getElementById("semester_tbody").rows.length - 1) + "' ALIGN=TOP maxlength='1'>";
 }
