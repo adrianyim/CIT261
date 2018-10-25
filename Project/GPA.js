@@ -1,10 +1,9 @@
 // Global varbies
-var grades = new Array(12);
-var credits = new Array(12);
+var grades = ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"];
+var credits = [4, 3.7, 3.4, 3, 2.7, 2.4, 2, 1.7, 1.4, 1, 0.7, 0];
 var inGrades = new Array(8);
 var inCredits = new Array(8);
 var className = new Array(8);
-var classCount = 8;
 
 //Shows information of Instrustion and About 
 function disInstruction() {
@@ -38,33 +37,8 @@ function inputError() {
 }
 
 // Main function of GPA
-function gpacalc(){  
+function gpaCalc() {  
     var grCount = 12; //Define valid grades and their values
-    
-    grades[0] = "A";
-    credits[0] = 4;
-    grades[1] = "A-";
-    credits[1] = 3.7;
-    grades[2] = "B+";
-    credits[2] = 3.4;
-    grades[3] = "B";
-    credits[3] = 3;
-    grades[4] = "B-";
-    credits[4] = 2.7;
-    grades[5] = "C+";
-    credits[5] = 2.4;
-    grades[6] = "C";
-    credits[6] = 2;
-    grades[7] = "C-";
-    credits[7] = 1.7;
-    grades[8] = "D+";
-    credits[8] = 1.4
-    grades[9] = "D";
-    credits[9] = 1;
-    grades[10] = "D-";
-    credits[10] = 0.7;
-    grades[11] = "F";
-    credits[11] = 0;
     
     // Calculate GPA
     var totalGrades = 0;
@@ -124,7 +98,7 @@ function valid() {
     var error = true;
     for ( var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
         if (inGrades[i] != "none" && inCredits[i] != ""){
-            gpacalc();
+            gpaCalc();
             error = false;
         }
         
@@ -164,7 +138,7 @@ function report(gpa) {
     return 0;
 }
 
-// Add classes
+// Add classes function
 function addRow() {
     var table = document.getElementById("semester_tbody");
     var row = table.insertRow(document.getElementById("semester_tbody").rows.length - 1);

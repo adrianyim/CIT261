@@ -14,28 +14,29 @@
         <h1>GPA Calculator version 3.0</h1>
     </header>
     <table id="table">
-        <tr class="subMenuBar"><th><button type="button" id="instruct" class="btn-primary" onclick="disInstruction()"><h3>Instruction</h3></button></th>
-            <th><button type="button" id="about" class="btn-primary" onclick="disAbout()"><h3>About</h3></button></th></tr>
+        <tr class="subMenuBar">
+            <th><button type="button" id="instruct" class="btn-primary" onclick="disInstruction()"><h3>Instruction</h3></button></th>
+        </tr>
+        <tr class="subMenuBar">
+            <th><button type="button" id="about" class="btn-primary" onclick="disAbout()"><h3>About</h3></button></th>
+        </tr>
         <tr><td id="td1" colspan="2"><div id="display"></div></td></tr>
         <tr><td id="td2">
-            <form name="GPACalcForm">
+            <form name="GPACalcForm" id="form">
                 <table id="semester">
                     <tr><th>Course:</th><th>Grade</th><th>Credits</th></tr>
                     <tbody id="semester_tbody">
-                        <tr><td>1. <input type="text" name="n1" size="10" placeholder="CS 371"></td><td>
-                            <select id="GR1"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR1" maxlength="1" onblur="inputError()" placeholder="4"></td></tr>
-                        <tr><td>2. <input type="text" name="n2" size="10"></td><td>
-                            <select id="GR2"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR2" ALIGN=TOP  maxlength="1"></td></tr>
-                        <tr><td>3. <input type="text" name="n3" size="10"></td><td>
-                            <select id="GR3"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR3" ALIGN=TOP maxlength="1"></td></tr>
-                        <tr><td>4. <input type="text" name="n4" size="10"></td><td>
-                            <select id="GR4"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR4" ALIGN=TOP maxlength="1"></td></tr>    
+                        <tr><td>1. <input type="text" name="n1" size="10" placeholder="CIT 261"></td><td><select id="GR1"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR1" maxlength="1" onblur="inputError()" placeholder="4"></td></tr>
+                        <tr><td>2. <input type="text" name="n2" size="10"></td><td><select id="GR2"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR2" ALIGN=TOP  maxlength="1"></td></tr>
+                        <tr><td>3. <input type="text" name="n3" size="10"></td><td><select id="GR3"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR3" ALIGN=TOP maxlength="1"></td></tr>
+                        <tr><td>4. <input type="text" name="n4" size="10"></td><td><select id="GR4"><option value="none">—</option><option value="A">A</option><option value="A-">A-</option><option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option><option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option><option value="D+">D+</option><option value="D">D</option><option value="D-">D-</option><option value="F">F</option></select></td><td><input type="text" size="1" name="CR4" ALIGN=TOP maxlength="1"></td></tr>    
                         <tr><td id="add"></td></tr>
                     </tbody>
                     <tr><td colspan="3"><button type="button" name="addButton" onclick="addRow()">Add</button><button type="button" name="CalcButton" onclick="valid()">Report</button><input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr>
                 </table>
             </form></td>
-    <td><div id="result"></div></td></tr>
+            <td><div id="result"></div></td>
+        </tr>
     </table>
     <br>
     <footer>
