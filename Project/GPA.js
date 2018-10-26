@@ -5,26 +5,26 @@ var inGrades = new Array(8);
 var inCredits = new Array(8);
 var className = new Array(8);
 
-//Shows information of Instrustion and About 
+// Display instrustion function
 function disInstruction() {
     document.getElementById("instruct").onclick = function(){
     document.getElementById("display").innerHTML = "1. Enter your courses.<br/>2. Enter your perdicted or current grades.<br/>3. Enter your course credits.<br/>4. Click CALCULATE button.<br/>5. You can see your result.<br/>6. You may reset and repeat step (1 - 5).";
     }
 }
 
-// Displaying about function
+// Display about function
 function disAbout() {
     document.getElementById("about").onclick = function(){
     document.getElementById("display").innerHTML = "This is a simple GPA Calculator. The goal of this calculator is to predict and set your semester GPA by providing your class' grades and credits. <br/>This calculator provides you to have a short amount time to find out how many GPA you need. You will feel confident with the accurate information by using the GPA calculator.";
     }
 }
 
-// Clear inputs
+// Clear inputs and result
 function getClear() {
     document.getElementById("result").innerHTML = " ";
 }
 
-// Get input error
+// Get input error**************************************
 function inputError() {
     var input = document.getElementsByName("CR1").value;
     if(0 <= input <= 5) {
@@ -53,9 +53,9 @@ function gpaCalc() {
         */
         
         var valid = true;
-        for (var j = 0; j < grCount; j++) {
-            if (inGrades[x] == grades[j]) {
-                totalGrades += (parseInt(inCredits[x], 10) * credits[j]);
+        for (var y = 0; y < grCount; y++) {
+            if (inGrades[x] == grades[y]) {
+                totalGrades += (parseInt(inCredits[x], 10) * credits[y]);
                 totalCredits += parseInt(inCredits[x], 10);
             }
         }
@@ -77,7 +77,6 @@ function gpaCalc() {
 
 // A valid function
 function valid() {
-
     // Retrieve user inputs
     // For class names
     for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {

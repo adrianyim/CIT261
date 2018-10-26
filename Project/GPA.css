@@ -60,7 +60,7 @@ td{
     width: auto;
     margin: 10px;
 }
-.table {
+.mainTable {
     width: 100%; 
     margin: 0;
     border: 0;
@@ -77,4 +77,9 @@ td{
 }
 #td2 {
     width: 50%;
+}
+.semester {
+    width: 75%; 
+    font-family: cursive; 
+    border:0;
 }
