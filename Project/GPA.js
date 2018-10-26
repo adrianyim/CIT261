@@ -1,21 +1,57 @@
 // Global varbies
 var grades = ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"];
 var credits = [4, 3.7, 3.4, 3, 2.7, 2.4, 2, 1.7, 1.4, 1, 0.7, 0];
-var inGrades = new Array(8);
-var inCredits = new Array(8);
-var className = new Array(8);
+var inGrades = new Array(10);
+var inCredits = new Array(10);
+var className = new Array(10);
+
+// A valid function
+function valid() {
+    retrieve();
+    
+    // Check empty or not
+    var error = false;
+    for ( var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
+        if (className[i] == "") {
+            alert("Input Error: Class Name " + eval(i+1) + " is missing!");
+            //document.getElementById('error').innerHTML = "Class name is missing";
+            error = true;
+        }
+        
+        if (inGrades[i] == "") {
+            alert("Input Error: Grade of Course " + eval(i+1) + " is missing!");
+            //document.getElementById('error').innerHTML = " Grade is missing";
+            error = true;
+        }
+            
+        if (inCredits[i] == ""){
+            alert("Input Error: Credit of Course " + eval(i+1) + " is missing!");
+            //document.getElementById('error').innerHTML = " Credit is missing";
+            error = true;
+        }
+
+        if (error == true) {
+            break;
+        }
+    }
+
+    // If there are no empty, then run the gpaCalc function
+    if (error == false) {
+        gpaCalc();
+    }
+}
 
 // Display instrustion function
 function disInstruction() {
     document.getElementById("instruct").onclick = function(){
-    document.getElementById("display").innerHTML = "1. Enter your courses.<br/>2. Enter your perdicted or current grades.<br/>3. Enter your course credits.<br/>4. Click CALCULATE button.<br/>5. You can see your result.<br/>6. You may reset and repeat step (1 - 5).";
+        document.getElementById("display").innerHTML = "1. Enter your courses.<br/>2. Enter your perdicted or current grades.<br/>3. Enter your course credits.<br/>4. Click CALCULATE button.<br/>5. You can see your result.<br/>6. You may reset and repeat step (1 - 5).";
     }
 }
 
 // Display about function
 function disAbout() {
     document.getElementById("about").onclick = function(){
-    document.getElementById("display").innerHTML = "This is a simple GPA Calculator. The goal of this calculator is to predict and set your semester GPA by providing your class' grades and credits. <br/>This calculator provides you to have a short amount time to find out how many GPA you need. You will feel confident with the accurate information by using the GPA calculator.";
+        document.getElementById("display").innerHTML = "This is a simple GPA Calculator. The goal of this calculator is to predict and set your semester GPA by providing your class' grades and credits. <br/>This calculator provides you to have a short amount time to find out how many GPA you need. You will feel confident with the accurate information by using the GPA calculator.";
     }
 }
 
@@ -75,8 +111,8 @@ function gpaCalc() {
     report(gpa);
 }
 
-// A valid function
-function valid() {
+// Retrieve inputs function
+function retrieve() {
     // Retrieve user inputs
     // For class names
     for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
@@ -91,34 +127,6 @@ function valid() {
     // For credits
     for (var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
         inCredits[i] = document.GPACalcForm['CR'+(i+1)].value;
-    }
-    
-    // Check empty or not
-    var error = true;
-    for ( var i=0; i<document.getElementById("semester_tbody").rows.length - 1; i++) {
-        if (inGrades[i] != "none" && inCredits[i] != ""){
-            gpaCalc();
-            error = false;
-        }
-        
-        if (className[i] == "") {
-            alert("Input Error: Course Name " + eval(i+1) + " is missing!");
-            error = true;
-        }
-        
-        if (inGrades[i] == "none") {
-            alert("Input Error: Grade of Course " + eval(i+1) + " is missing!");
-            error = true;
-        }
-            
-        if (inCredits[i] == ""){
-            alert("Input Error: Credit of Course " + eval(i+1) + " is missing!");
-            error = true;
-        }
-            
-        if (error = true) {
-            break;
-        }
     }
 }
 
@@ -142,11 +150,11 @@ function addRow() {
     var table = document.getElementById("semester_tbody");
     var row = table.insertRow(document.getElementById("semester_tbody").rows.length - 1);
 
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
+    row.insertCell(0).innerHTML = (document.getElementById('semester_tbody').rows.length - 1) + ". <input type='text' name='n" + (document.getElementById("semester_tbody").rows.length - 1) + "' size='10'>";
+    row.insertCell(1).innerHTML = "<select id='GR" + (document.getElementById("semester_tbody").rows.length - 1) + "'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select>";
+    row.insertCell(2).innerHTML = "<input type='text' size='1' name='CR" + (document.getElementById("semester_tbody").rows.length - 1) + "' ALIGN=TOP maxlength='1'>";
 
-    cell1.innerHTML = (document.getElementById('semester_tbody').rows.length - 1) + ". <input type='text' name='n" + (document.getElementById("semester_tbody").rows.length - 1) + "' size='10'>";
-    cell2.innerHTML = "<select id='GR" + (document.getElementById("semester_tbody").rows.length - 1) + "'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select>";
-    cell3.innerHTML = "<input type='text' size='1' name='CR" + (document.getElementById("semester_tbody").rows.length - 1) + "' ALIGN=TOP maxlength='1'>";
+    // cell1.innerHTML = (document.getElementById('semester_tbody').rows.length - 1) + ". <input type='text' name='n" + (document.getElementById("semester_tbody").rows.length - 1) + "' size='10'>";
+    // cell2.innerHTML = "<select id='GR" + (document.getElementById("semester_tbody").rows.length - 1) + "'><option value='none'>—</option><option value='A'>A</option><option value='A-'>A-</option><option value='B+'>B+</option><option value='B'>B</option><option value='B-'>B-</option><option value='C+'>C+</option><option value='C'>C</option><option value='C-'>C-</option><option value='D+'>D+</option><option value='D'>D</option><option value='D-'>D-</option><option value='F'>F</option></select>";
+    // cell3.innerHTML = "<input type='text' size='1' name='CR" + (document.getElementById("semester_tbody").rows.length - 1) + "' ALIGN=TOP maxlength='1'>";
 }

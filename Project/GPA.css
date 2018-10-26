@@ -46,9 +46,8 @@ footer a:hover {
 th{
     margin: auto;
     padding: 0px;
-    text-align: center;
-    border-bottom: 2px solid black; 
-    border-top: 2px solid black;
+    /* border-bottom: 2px solid black; 
+    border-top: 2px solid black; */
 }
 td{
     margin: auto;
@@ -73,7 +72,7 @@ td{
 }
 #td1 {
     padding: 25px; 
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
 }
 #td2 {
     width: 50%;
@@ -82,4 +81,7 @@ td{
     width: 75%; 
     font-family: cursive; 
     border:0;
+}
+#error {
+    /* text-align: right; */
 }
