@@ -104,16 +104,16 @@ function getClear() {
 }
 
 // Get input error**************************************
-function inputError() {
-    var input = document.getElementsByName("CR1").value;
-    if(0 <= input <= 5) {
-        return true;
-    }
-    else {
-        alert("ERROR: The first row of the credit is incorrect format!");
-        return false;
-    }
-}
+// function inputError() {
+//     var input = document.getElementsByName("CR1").value;
+//     if(0 <= input <= 5) {
+//         return true;
+//     }
+//     else {
+//         alert("ERROR: The first row of the credit is incorrect format!");
+//         return false;
+//     }
+// }
 
 // Retrieve inputs function
 function retrieve() {
