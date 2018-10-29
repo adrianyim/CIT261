@@ -9,9 +9,6 @@ var className = [];
 function valid() {
     retrieve();
 
-    var num = className.length;
-    console.log(num);
-
     // Check empty or not
     var error = false;
     for ( var i=0; i<className.length; i++) {
