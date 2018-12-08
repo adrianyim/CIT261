@@ -5,13 +5,14 @@
     <meta charset="utf-8"/>
     <meta name="veiwport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="BYU-Idaho, BYUI, GPA, GPA calculator">
-    <script type="text/javascript" src="GPA.js"></script>
     <link rel="stylesheet" href="GPA.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script type="text/javascript" src="GPA.js"></script>
 </head>
 <body>
     <header class="menuBar">
         <a href="http://www.byui.edu/"><img src="http://www.byui.edu/Images/Branding/Official-Logo.jpg" class="byuiLink"></a>
-        <h1>GPA Calculator version 3.0</h1>
+        <h1>GPA Calculator version 4.0</h1>
     </header>
     <table class="mainTable">
         <tr class="subMenuBar">
@@ -24,41 +25,54 @@
         <tr><td id="td2">
             <form name="GPACalcForm" id="gpaForm">
                 <table class="semester">
-                    <tr><th>Class:</th><th>Grade:</th><th>Credits:</th></tr>
+                    <tr><th id="thCell"></th><th>Class:</th><th>Grade:</th><th>Credits:</th></tr>
                     <tbody id="semester_tbody">
-                        <tr><td>1. <input type="text" name="n1" size="10" placeholder="CIT 261"></td>
-                            <td><select id="GR1">
-                                <option value="none">—</option>
-                                <option value="A">A</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B">B</option>
-                                <option value="B-">B-</option>
-                                <option value="C+">C+</option>
-                                <option value="C">C</option>
-                                <option value="C-">C-</option>
-                                <option value="D+">D+</option>
-                                <option value="D">D</option>
-                                <option value="D-">D-</option>
-                                <option value="F">F</option></select></td>
-                                <td><input type="text" size="1" name="CR1" maxlength="1" onblur="inputError()" placeholder="4"></td>
-                            </tr>
-                        <tr><td id="add"></td></tr>
+                        <tr><td>1. </td>
+                            <td><input type="text" name="n1" size="10" placeholder="CIT 261"></td>
+                            <td>
+                                <select id="GR1">
+                                    <option value="">—</option>
+                                    <option value="A">A</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B">B</option>
+                                    <option value="B-">B-</option>
+                                    <option value="C+">C+</option>
+                                    <option value="C">C</option>
+                                    <option value="C-">C-</option>
+                                    <option value="D+">D+</option>
+                                    <option value="D">D</option>
+                                    <option value="D-">D-</option>
+                                    <option value="F">F</option>
+                                </select>
+                            </td>
+                            <td><input type="text" size="1" name="CR1" maxlength="1" placeholder="3"></td>
+                        </tr>
                     </tbody>
-                    <tr><td colspan="3"><button type="button" name="CalcButton" onclick="valid()">Report</button>
-                        <input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr>
-                    <tr><td colspan="3"><button type="button" name="addButton" onclick="addRow()">Add Class</button>
+                    <tr><td colspan="4"><button type="button" name="addButton" onclick="addRow()">Add Class</button>
                         <button type="button" name="removeButton" onclick="removeRow()">Remove Class</button></td></tr>
+                    <tr><td colspan="4"><button type="button" name="CalcButton" onclick="valid()">Report</button>
+                        <input type="reset" value="Reset" name="resetButton" onclick="getClear()"></td></tr>
+                    <tr><td colspan="4"> Find your classes:
+                        <select onchange="gpaFirebase()" id="department">
+                            <option value="">Select course catalog</option>
+                            <option value="computer_information_technology">CIT</option>
+                            <option value="computer_science">CS</option>
+                            <option value="foundations_religion">FDREL</option>
+                        </select>
+                    </td></tr>
                 </table>
             </form></td>
         </tr>
         <tr><td><div id="result"></div></td></tr>
         <tr><td><div id="error"></div></td></tr>
+        <tr><td><div id="course"></div></td></tr>
     </table>
     <br>
     <footer>
         <div>
-            <a href="http://www.byui.edu/">- BYU-Idaho</a><br/><a href="http://www.byui.edu/catalog/#/courses">- Course Catalog</a>
+            <p><a href="http://www.byui.edu/">- BYU-Idaho</a></p>
+            <p><a href="http://www.byui.edu/catalog/#/courses">- Course Catalog</a></p>
             <p>Copyright ©2018</p>
         </div>
     </footer>

@@ -44,11 +44,14 @@ footer a:hover {
     color: white;
     font-weight:bolder;
 }
-th{
+.semester th{
     margin: auto;
     padding: 0px;
     border-bottom: 2px solid black; 
     border-top: 2px solid black;
+}
+#thCell {
+    border:0;
 }
 td{
     margin: auto;
@@ -86,6 +89,8 @@ td{
 #gpaForm {
     padding: 2% 35%;
 }
-#error {
-    /* text-align: right; */
-}
+table.mainTable {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+} 
