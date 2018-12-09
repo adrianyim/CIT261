@@ -1,5 +1,5 @@
 // Initialize Firebase
-
+// API key
 firebase.initializeApp(config);
 
 // Global arrays
