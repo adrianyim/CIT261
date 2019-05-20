@@ -1,15 +1,3 @@
-// API key
-// Initialize Firebase
-
-var config = {
-apiKey: "AIzaSyD0xkeXwuNAac_YDa94Apo59QId-5GGM2M",
-authDomain: "byui-courses-database.firebaseapp.com",
-databaseURL: "https://byui-courses-database.firebaseio.com",
-projectId: "byui-courses-database",
-storageBucket: "byui-courses-database.appspot.com",
-messagingSenderId: "841768899474"
-};
-
 firebase.initializeApp(config);
 
 
