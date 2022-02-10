@@ -23,7 +23,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "node-sass": "^4.9.4",
+    "node-sass": "^7.0.0",
     "parcel-bundler": "^1.10.3",
     "rimraf": "^2.6.2"
   },
